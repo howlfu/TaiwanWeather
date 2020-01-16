@@ -1,10 +1,12 @@
 {
-    "cwb": {
-        "path": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
-        "auth": "CWB-7BB8EDCA-6853-4E86-89E2-6E846B7986DB"
+    "Cwb": {
+        "IsDebug": true,
+        "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
+        "AlertPath": "https://alerts.ncdr.nat.gov.tw/JSONAtomFeed.ashx",
+        "Auth": "CWB-7BB8EDCA-6853-4E86-89E2-6E846B7986DB"
     },
-    "api": {
-        "port": 7123,
-        "isSecure": true
+    "Api": {
+        "Port": 7123,
+        "IsSecure": true
     }
 }
