@@ -1,14 +1,17 @@
 {
-    "Cwb": {
-        "IsDebug": false,
-        "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
-        "AlertPath": "https://alerts.ncdr.nat.gov.tw/JSONAtomFeed.ashx",
-        "SuspendPath": "https://www.dgpa.gov.tw/typh/daily/nds.html",
-        "Auth": "CWB-7BB8EDCA-6853-4E86-89E2-6E846B7986DB"
+    "PareMgr": {
+        "Cwb": {
+            "IsDebug": true,
+            "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
+            "AlertPath": "https://alerts.ncdr.nat.gov.tw/JSONAtomFeed.ashx",
+            "SuspendPath": "https://www.dgpa.gov.tw/typh/daily/nds.html",
+            "Auth": "CWB-7BB8EDCA-6853-4E86-89E2-6E846B7986DB"
+        },
+        "Interval": 5
     },
     "Api": {
         "Port": 7123,
         "IsSecure": true
-    },
-    "Interval": 5
+    }
+    
 }

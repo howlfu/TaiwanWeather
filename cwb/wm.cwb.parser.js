@@ -14,8 +14,18 @@ class WmCWBParser {
             this.alertPath = config.AlertPath;
             this.suspendPath = config.SuspendPath;
             this.auth = config.Auth;
+            this._updatePm25();
+            this.isReady = false;
+            var oneDay = 1000*60*60*24;
+            setInterval( function() {
+                this._updatePm25();
+            }.bind(this), oneDay);
         }
         this.init();
+    }
+
+    IsReady() {
+        return this.isReady;
     }
 
     SetCWBPath(path) {
@@ -26,12 +36,17 @@ class WmCWBParser {
         this.alertPath = path;
     }
 
-    GetWether(county, town, cb) {
+    GetWeather(county, town, cb) {
         if(county in WmResType) {
             var _this = this;
             async function getAllData() {
-                var weatherDetail = await _this._getWeather(town, WmResType[county]);
-                var pm25 = await _this._getPm25(county, town);
+                try {
+                    var weatherDetail = await _this._getWeather(town, WmResType[county]);
+                    var pm25 = _this._getPm25Single(county, town);
+                } catch (error) {
+                    console.log('Get weather data fail');
+                }
+                
                 if(weatherDetail != null && weatherDetail != undefined) {
                     weatherDetail.pm25 = pm25;
                 }
@@ -43,11 +58,15 @@ class WmCWBParser {
         }
     }
 
-    GetAlarmSet(county, town, cb) {
+    GetAlertSet(county, town, cb) {
         var _this = this;
         async function getAllData() {
-            var alertSet = await _this._getAlertSet(county, town);
-            var desc = await _this._getSuspend(county);
+            try {
+                var alertSet = await _this._getAlertSet(county, town);
+                 var desc = await _this._getSuspend(county);
+            } catch (error) {
+                console.log('Get alert data fail, '+ county + ' ' + town);
+            }
             if(desc != null && _this.debug == true) {
                 var suspendDetail = {
                     'type': WmAlertResultType.SUSPEND,
@@ -64,6 +83,49 @@ class WmCWBParser {
 
     init() {
         this._checkIfApiReady();
+    }
+
+    _updatePm25() {
+        this._getPm25().then((data) => {
+            this.isReady = true;
+            this.cachePm25 = data;
+            console.log('get pm25');
+        });
+    }
+
+    _getPm25Single(county, town) {
+        var pm25 = {};
+        for(var i = 0; i < this.cachePm25.length; i ++) {
+            var countyDetail = this.cachePm25[i];
+            if(countyDetail.County == county) {
+                pm25[countyDetail.SiteName] = countyDetail['PM2.5'];
+            }
+        }
+        var siteString = town.replace('縣','').replace('市','').replace('區','');;
+        if(siteString in pm25) {
+            try {
+                var intVal = parseInt(pm25[siteString]);
+                return intVal;
+            } catch (error) {
+                return 0;
+            }
+        }
+        else {
+            var result = 0;
+            var pm25Array = Object.keys(pm25);
+            if(pm25Array.length != 0){
+                var allSum = 0;
+                pm25Array.forEach(function(pm){
+                    try {
+                        var intVal = parseInt(pm25[pm]);
+                        allSum = allSum + intVal;
+                    } catch (error) {
+                    }
+                });
+                result = Math.round(allSum / pm25Array.length);
+            }
+            return result;
+        }
     }
 
     _checkIfApiReady() {
@@ -121,7 +183,7 @@ class WmCWBParser {
         });
     }
 
-    _getPm25(county, site) {
+    _getPm25() {
         const agent = new https.Agent({rejectUnauthorized: false});
         return new Promise((resolve, reject) => {
             var fetchPath = 'https://opendata.epa.gov.tw/ws/data/aqi/?$format=json';
@@ -131,44 +193,16 @@ class WmCWBParser {
                 })
             .then(res => res.json())
             .then(retData => {
-                var pm25 = {};
-                for(var i = 0; i < retData.length; i ++) {
-                    var countyDetail = retData[i];
-                    if(countyDetail.County == county) {
-                        pm25[countyDetail.SiteName] = countyDetail['PM2.5'];
-                    }
-                }
-                var siteString = site.replace('縣','').replace('市','').replace('區','');;
-                if(siteString in pm25) {
-                    try {
-                        var intVal = parseInt(pm25[siteString]);
-                        resolve(intVal)
-                    } catch (error) {
-                        resolve(0);
-                    }
-                }
-                else {
-                    var result = 0;
-                    var pm25Array = Object.keys(pm25);
-                    if(pm25Array.length != 0){
-                        var allSum = 0;
-                        pm25Array.forEach(function(pm){
-                            try {
-                                var intVal = parseInt(pm25[pm]);
-                                allSum = allSum + intVal;
-                            } catch (error) {
-                            }
-                        });
-                        result = Math.round(allSum / pm25Array.length);
-                    }
-                    resolve(result);
-                }
+                resolve(retData);
+                
             })
             .catch(function(err){
                 reject(err);
             });
         });
     }
+
+    
 
     _getWeatherFactors(allWeatherElement) {
         var retData = {};
@@ -177,13 +211,13 @@ class WmCWBParser {
         retData.desc = wxsElement[0].value;
         var allT = allWeatherElement[WmCwbElementType.T].time;
         var tElement = this._getCurrentDataIndex(allT);
-        retData.temperature = tElement[0].value + '度C';
+        retData.temperature = parseInt(tElement[0].value);
         var allRH = allWeatherElement[WmCwbElementType.RH].time;
         var RHElement = this._getCurrentDataIndex(allRH);
-        retData.humidity = RHElement[0].value + '%';
+        retData.humidity = parseInt(RHElement[0].value);
         var allPop6 = allWeatherElement[WmCwbElementType.POP6].time;
         var Pop6Element = this._getCurrentDataIndex(allPop6);
-        retData.rain_chance = Pop6Element[0].value + '%';
+        retData.rain_chance = parseInt(Pop6Element[0].value);
         return retData;
     }
 
@@ -239,6 +273,7 @@ class WmCWBParser {
                     }
                     count ++;
                 }).catch(err => {
+                    console.log('single alarm get fail ' + type)
                     reject(err);
                 });
             });
@@ -441,7 +476,7 @@ module.exports = WmCWBParser
 // // var cont = fs.readFileSync('/Users/howlfu/Downloads/test_2.html', 'utf8');
 // //testParser._getSuspend('宜蘭縣');
 // // testParser._checkIfSuspend('宜蘭縣', cont);
-// testParser.GetAlarmSet('宜蘭縣', '冬山鄉', function(data) {
+// testParser.GetAlertSet('宜蘭縣', '冬山鄉', function(data) {
 //         console.log(data);
 //     });
 
@@ -462,13 +497,13 @@ module.exports = WmCWBParser
 // var thunder = "108 年 9 月 27 日 23 時 11 分 氣象局發布大雷雨即時訊息，持續時間至 1 時 15 分；請慎防劇烈降雨、雷擊，坍方、落石、土石流，低窪地區慎防淹水";
 // var result =  testParser._parseSum(thunder, 'THUNDER', '嘉義縣', '測試區');
 // console.log(result);
-// // testParser.GetWether('臺北市', '中正區', function(data) {
+// // testParser.GetWeather('臺北市', '中正區', function(data) {
 // //     console.log(data);
 // // });
-// testParser.GetWether('臺北市', '古亭', function(data) {
+// testParser.GetWeather('臺北市', '古亭', function(data) {
 //     console.log(data);
 // });
-// testParser.GetWether('台灣市', '古亭', function(data) {
+// testParser.GetWeather('台灣市', '古亭', function(data) {
 //     console.log(data);
 // });
 

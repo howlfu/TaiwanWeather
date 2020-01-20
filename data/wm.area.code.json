@@ -1,0 +1,1474 @@
+{
+    "68000130": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "復興區"
+    },
+    "68000120": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "觀音區"
+    },
+    "68000110": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "新屋區"
+    },
+    "68000100": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "平鎮區"
+    },
+    "68000090": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "龍潭區"
+    },
+    "68000080": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "八德區"
+    },
+    "68000070": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "龜山區"
+    },
+    "68000060": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "大園區"
+    },
+    "68000050": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "蘆竹區"
+    },
+    "68000040": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "楊梅區"
+    },
+    "68000030": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "大溪區"
+    },
+    "68000020": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "中壢區"
+    },
+    "68000010": {
+         "AreaCounty": "桃園市",
+         "AreaTown": "桃園區"
+    },
+    "67000370": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "中西區"
+    },
+    "67000360": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "安平區"
+    },
+    "67000350": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "安南區"
+    },
+    "67000340": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "北區"
+    },
+    "67000330": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "南區"
+    },
+    "67000320": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "東區"
+    },
+    "67000310": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "永康區"
+    },
+    "67000300": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "龍崎區"
+    },
+    "67000290": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "關廟區"
+    },
+    "67000280": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "歸仁區"
+    },
+    "67000270": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "仁德區"
+    },
+    "67000260": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "左鎮區"
+    },
+    "67000250": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "南化區"
+    },
+    "67000240": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "楠西區"
+    },
+    "67000230": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "玉井區"
+    },
+    "67000220": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "山上區"
+    },
+    "67000210": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "安定區"
+    },
+    "67000200": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "新市區"
+    },
+    "67000190": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "善化區"
+    },
+    "67000180": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "新化區"
+    },
+    "67000170": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "北門區"
+    },
+    "67000160": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "將軍區"
+    },
+    "67000150": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "七股區"
+    },
+    "67000140": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "西港區"
+    },
+    "67000130": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "學甲區"
+    },
+    "67000120": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "佳里區"
+    },
+    "67000110": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "大內區"
+    },
+    "67000100": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "官田區"
+    },
+    "67000090": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "六甲區"
+    },
+    "67000080": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "下營區"
+    },
+    "67000070": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "麻豆區"
+    },
+    "67000060": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "東山區"
+    },
+    "67000050": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "後壁區"
+    },
+    "67000040": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "柳營區"
+    },
+    "67000030": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "白河區"
+    },
+    "67000020": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "鹽水區"
+    },
+    "67000010": {
+         "AreaCounty": "臺南市",
+         "AreaTown": "新營區"
+    },
+    "66000290": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "和平區"
+    },
+    "66000280": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "大里區"
+    },
+    "66000270": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "太平區"
+    },
+    "66000260": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "霧峰區"
+    },
+    "66000250": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "龍井區"
+    },
+    "66000240": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "大肚區"
+    },
+    "66000230": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "烏日區"
+    },
+    "66000220": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "大安區"
+    },
+    "66000210": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "外埔區"
+    },
+    "66000200": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "石岡區"
+    },
+    "66000190": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "新社區"
+    },
+    "66000180": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "大雅區"
+    },
+    "66000170": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "潭子區"
+    },
+    "66000160": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "神岡區"
+    },
+    "66000150": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "后里區"
+    },
+    "66000140": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "梧棲區"
+    },
+    "66000130": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "沙鹿區"
+    },
+    "66000120": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "清水區"
+    },
+    "66000110": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "大甲區"
+    },
+    "66000100": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "東勢區"
+    },
+    "66000090": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "豐原區"
+    },
+    "66000080": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "北屯區"
+    },
+    "66000070": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "南屯區"
+    },
+    "66000060": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "西屯區"
+    },
+    "66000050": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "北區"
+    },
+    "66000040": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "西區"
+    },
+    "66000030": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "南區"
+    },
+    "66000020": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "東區"
+    },
+    "66000010": {
+         "AreaCounty": "臺中市",
+         "AreaTown": "中區"
+    },
+    "65000290": {
+         "AreaCounty": "新北市",
+         "AreaTown": "烏來區"
+    },
+    "65000280": {
+         "AreaCounty": "新北市",
+         "AreaTown": "萬里區"
+    },
+    "65000270": {
+         "AreaCounty": "新北市",
+         "AreaTown": "金山區"
+    },
+    "65000260": {
+         "AreaCounty": "新北市",
+         "AreaTown": "貢寮區"
+    },
+    "65000250": {
+         "AreaCounty": "新北市",
+         "AreaTown": "雙溪區"
+    },
+    "65000240": {
+         "AreaCounty": "新北市",
+         "AreaTown": "平溪區"
+    },
+    "65000230": {
+         "AreaCounty": "新北市",
+         "AreaTown": "八里區"
+    },
+    "65000220": {
+         "AreaCounty": "新北市",
+         "AreaTown": "石門區"
+    },
+    "65000210": {
+         "AreaCounty": "新北市",
+         "AreaTown": "三芝區"
+    },
+    "65000200": {
+         "AreaCounty": "新北市",
+         "AreaTown": "坪林區"
+    },
+    "65000190": {
+         "AreaCounty": "新北市",
+         "AreaTown": "石碇區"
+    },
+    "65000180": {
+         "AreaCounty": "新北市",
+         "AreaTown": "深坑區"
+    },
+    "65000170": {
+         "AreaCounty": "新北市",
+         "AreaTown": "林口區"
+    },
+    "65000160": {
+         "AreaCounty": "新北市",
+         "AreaTown": "泰山區"
+    },
+    "65000150": {
+         "AreaCounty": "新北市",
+         "AreaTown": "五股區"
+    },
+    "65000140": {
+         "AreaCounty": "新北市",
+         "AreaTown": "蘆洲區"
+    },
+    "65000130": {
+         "AreaCounty": "新北市",
+         "AreaTown": "土城區"
+    },
+    "65000120": {
+         "AreaCounty": "新北市",
+         "AreaTown": "瑞芳區"
+    },
+    "65000110": {
+         "AreaCounty": "新北市",
+         "AreaTown": "汐止區"
+    },
+    "65000100": {
+         "AreaCounty": "新北市",
+         "AreaTown": "淡水區"
+    },
+    "65000090": {
+         "AreaCounty": "新北市",
+         "AreaTown": "三峽區"
+    },
+    "65000080": {
+         "AreaCounty": "新北市",
+         "AreaTown": "鶯歌區"
+    },
+    "65000070": {
+         "AreaCounty": "新北市",
+         "AreaTown": "樹林區"
+    },
+    "65000060": {
+         "AreaCounty": "新北市",
+         "AreaTown": "新店區"
+    },
+    "65000050": {
+         "AreaCounty": "新北市",
+         "AreaTown": "新莊區"
+    },
+    "65000040": {
+         "AreaCounty": "新北市",
+         "AreaTown": "永和區"
+    },
+    "65000030": {
+         "AreaCounty": "新北市",
+         "AreaTown": "中和區"
+    },
+    "65000020": {
+         "AreaCounty": "新北市",
+         "AreaTown": "三重區"
+    },
+    "65000010": {
+         "AreaCounty": "新北市",
+         "AreaTown": "板橋區"
+    },
+    "64000380": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "那瑪夏區"
+    },
+    "64000370": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "桃源區"
+    },
+    "64000360": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "茂林區"
+    },
+    "64000350": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "內門區"
+    },
+    "64000340": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "杉林區"
+    },
+    "64000330": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "甲仙區"
+    },
+    "64000320": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "六龜區"
+    },
+    "64000310": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "美濃區"
+    },
+    "64000300": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "旗山區"
+    },
+    "64000290": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "梓官區"
+    },
+    "64000280": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "彌陀區"
+    },
+    "64000270": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "永安區"
+    },
+    "64000260": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "茄萣區"
+    },
+    "64000250": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "湖內區"
+    },
+    "64000240": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "路竹區"
+    },
+    "64000230": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "阿蓮區"
+    },
+    "64000220": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "田寮區"
+    },
+    "64000210": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "燕巢區"
+    },
+    "64000200": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "橋頭區"
+    },
+    "64000190": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "岡山區"
+    },
+    "64000180": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "鳥松區"
+    },
+    "64000170": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "仁武區"
+    },
+    "64000160": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "大社區"
+    },
+    "64000150": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "大樹區"
+    },
+    "64000140": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "大寮區"
+    },
+    "64000130": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "林園區"
+    },
+    "64000120": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "鳳山區"
+    },
+    "64000110": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "小港區"
+    },
+    "64000100": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "旗津區"
+    },
+    "64000090": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "前鎮區"
+    },
+    "64000080": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "苓雅區"
+    },
+    "64000070": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "前金區"
+    },
+    "64000060": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "新興區"
+    },
+    "64000050": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "三民區"
+    },
+    "64000040": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "楠梓區"
+    },
+    "64000030": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "左營區"
+    },
+    "64000020": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "鼓山區"
+    },
+    "64000010": {
+         "AreaCounty": "高雄市",
+         "AreaTown": "鹽埕區"
+    },
+    "63000120": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "北投區"
+    },
+    "63000110": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "士林區"
+    },
+    "63000100": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "內湖區"
+    },
+    "63000090": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "南港區"
+    },
+    "63000080": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "文山區"
+    },
+    "63000070": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "萬華區"
+    },
+    "63000060": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "大同區"
+    },
+    "63000050": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "中正區"
+    },
+    "63000040": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "中山區"
+    },
+    "63000030": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "大安區"
+    },
+    "63000020": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "信義區"
+    },
+    "63000010": {
+         "AreaCounty": "臺北市",
+         "AreaTown": "松山區"
+    },
+    "10020020": {
+         "AreaCounty": "嘉義市",
+         "AreaTown": "西區"
+    },
+    "10020010": {
+         "AreaCounty": "嘉義市",
+         "AreaTown": "東區"
+    },
+    "10018030": {
+         "AreaCounty": "新竹市",
+         "AreaTown": "香山區"
+    },
+    "10018020": {
+         "AreaCounty": "新竹市",
+         "AreaTown": "北區"
+    },
+    "10018010": {
+         "AreaCounty": "新竹市",
+         "AreaTown": "東區"
+    },
+    "10017070": {
+         "AreaCounty": "基隆市",
+         "AreaTown": "信義區"
+    },
+    "10017060": {
+         "AreaCounty": "基隆市",
+         "AreaTown": "安樂區"
+    },
+    "10017050": {
+         "AreaCounty": "基隆市",
+         "AreaTown": "中山區"
+    },
+    "10017040": {
+         "AreaCounty": "基隆市",
+         "AreaTown": "仁愛區"
+    },
+    "10017030": {
+         "AreaCounty": "基隆市",
+         "AreaTown": "暖暖區"
+    },
+    "10017020": {
+         "AreaCounty": "基隆市",
+         "AreaTown": "七堵區"
+    },
+    "10017010": {
+         "AreaCounty": "基隆市",
+         "AreaTown": "中正區"
+    },
+    "10016060": {
+         "AreaCounty": "澎湖縣",
+         "AreaTown": "七美鄉"
+    },
+    "10016050": {
+         "AreaCounty": "澎湖縣",
+         "AreaTown": "望安鄉"
+    },
+    "10016040": {
+         "AreaCounty": "澎湖縣",
+         "AreaTown": "西嶼鄉"
+    },
+    "10016030": {
+         "AreaCounty": "澎湖縣",
+         "AreaTown": "白沙鄉"
+    },
+    "10016020": {
+         "AreaCounty": "澎湖縣",
+         "AreaTown": "湖西鄉"
+    },
+    "10016010": {
+         "AreaCounty": "澎湖縣",
+         "AreaTown": "馬公市"
+    },
+    "10015130": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "卓溪鄉"
+    },
+    "10015120": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "萬榮鄉"
+    },
+    "10015110": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "秀林鄉"
+    },
+    "10015100": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "富里鄉"
+    },
+    "10015090": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "瑞穗鄉"
+    },
+    "10015080": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "豐濱鄉"
+    },
+    "10015070": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "光復鄉"
+    },
+    "10015060": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "壽豐鄉"
+    },
+    "10015050": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "吉安鄉"
+    },
+    "10015040": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "新城鄉"
+    },
+    "10015030": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "玉里鎮"
+    },
+    "10015020": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "鳳林鎮"
+    },
+    "10015010": {
+         "AreaCounty": "花蓮縣",
+         "AreaTown": "花蓮市"
+    },
+    "10014160": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "蘭嶼鄉"
+    },
+    "10014150": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "達仁鄉"
+    },
+    "10014140": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "金峰鄉"
+    },
+    "10014130": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "延平鄉"
+    },
+    "10014120": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "海端鄉"
+    },
+    "10014110": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "綠島鄉"
+    },
+    "10014100": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "大武鄉"
+    },
+    "10014090": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "太麻里鄉"
+    },
+    "10014080": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "長濱鄉"
+    },
+    "10014070": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "東河鄉"
+    },
+    "10014060": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "池上鄉"
+    },
+    "10014050": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "鹿野鄉"
+    },
+    "10014040": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "卑南鄉"
+    },
+    "10014030": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "關山鎮"
+    },
+    "10014020": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "成功鎮"
+    },
+    "10014010": {
+         "AreaCounty": "臺東縣",
+         "AreaTown": "臺東市"
+    },
+    "10013330": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "牡丹鄉"
+    },
+    "10013320": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "獅子鄉"
+    },
+    "10013310": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "春日鄉"
+    },
+    "10013300": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "來義鄉"
+    },
+    "10013290": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "泰武鄉"
+    },
+    "10013280": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "瑪家鄉"
+    },
+    "10013270": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "霧臺鄉"
+    },
+    "10013260": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "三地門鄉"
+    },
+    "10013250": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "枋山鄉"
+    },
+    "10013240": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "滿州鄉"
+    },
+    "10013230": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "車城鄉"
+    },
+    "10013220": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "琉球鄉"
+    },
+    "10013210": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "佳冬鄉"
+    },
+    "10013200": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "南州鄉"
+    },
+    "10013190": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "林邊鄉"
+    },
+    "10013180": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "崁頂鄉"
+    },
+    "10013170": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "新園鄉"
+    },
+    "10013160": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "枋寮鄉"
+    },
+    "10013150": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "新埤鄉"
+    },
+    "10013140": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "竹田鄉"
+    },
+    "10013130": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "內埔鄉"
+    },
+    "10013120": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "萬巒鄉"
+    },
+    "10013110": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "高樹鄉"
+    },
+    "10013100": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "鹽埔鄉"
+    },
+    "10013090": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "里港鄉"
+    },
+    "10013080": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "九如鄉"
+    },
+    "10013070": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "麟洛鄉"
+    },
+    "10013060": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "長治鄉"
+    },
+    "10013050": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "萬丹鄉"
+    },
+    "10013040": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "恆春鎮"
+    },
+    "10013030": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "東港鎮"
+    },
+    "10013020": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "潮州鎮"
+    },
+    "10013010": {
+         "AreaCounty": "屏東縣",
+         "AreaTown": "屏東市"
+    },
+    "10010180": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "阿里山鄉"
+    },
+    "10010170": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "大埔鄉"
+    },
+    "10010160": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "番路鄉"
+    },
+    "10010150": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "梅山鄉"
+    },
+    "10010140": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "竹崎鄉"
+    },
+    "10010130": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "中埔鄉"
+    },
+    "10010120": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "水上鄉"
+    },
+    "10010110": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "鹿草鄉"
+    },
+    "10010100": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "義竹鄉"
+    },
+    "10010090": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "東石鄉"
+    },
+    "10010080": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "六腳鄉"
+    },
+    "10010070": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "新港鄉"
+    },
+    "10010060": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "溪口鄉"
+    },
+    "10010050": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "民雄鄉"
+    },
+    "10010040": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "大林鎮"
+    },
+    "10010030": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "布袋鎮"
+    },
+    "10010020": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "朴子市"
+    },
+    "10010010": {
+         "AreaCounty": "嘉義縣",
+         "AreaTown": "太保市"
+    },
+    "10009200": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "水林鄉"
+    },
+    "10009190": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "口湖鄉"
+    },
+    "10009180": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "四湖鄉"
+    },
+    "10009170": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "元長鄉"
+    },
+    "10009160": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "臺西鄉"
+    },
+    "10009150": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "褒忠鄉"
+    },
+    "10009140": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "東勢鄉"
+    },
+    "10009130": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "麥寮鄉"
+    },
+    "10009120": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "崙背鄉"
+    },
+    "10009110": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "二崙鄉"
+    },
+    "10009100": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "林內鄉"
+    },
+    "10009090": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "莿桐鄉"
+    },
+    "10009080": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "大埤鄉"
+    },
+    "10009070": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "古坑鄉"
+    },
+    "10009060": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "北港鎮"
+    },
+    "10009050": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "土庫鎮"
+    },
+    "10009040": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "西螺鎮"
+    },
+    "10009030": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "虎尾鎮"
+    },
+    "10009020": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "斗南鎮"
+    },
+    "10009010": {
+         "AreaCounty": "雲林縣",
+         "AreaTown": "斗六市"
+    },
+    "10008130": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "仁愛鄉"
+    },
+    "10008120": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "信義鄉"
+    },
+    "10008110": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "水里鄉"
+    },
+    "10008100": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "國姓鄉"
+    },
+    "10008090": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "魚池鄉"
+    },
+    "10008080": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "中寮鄉"
+    },
+    "10008070": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "鹿谷鄉"
+    },
+    "10008060": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "名間鄉"
+    },
+    "10008050": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "集集鎮"
+    },
+    "10008040": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "竹山鎮"
+    },
+    "10008030": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "草屯鎮"
+    },
+    "10008020": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "埔里鎮"
+    },
+    "10008010": {
+         "AreaCounty": "南投縣",
+         "AreaTown": "南投市"
+    },
+    "10007260": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "溪州鄉"
+    },
+    "10007250": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "竹塘鄉"
+    },
+    "10007240": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "大城鄉"
+    },
+    "10007230": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "芳苑鄉"
+    },
+    "10007220": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "埤頭鄉"
+    },
+    "10007210": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "田尾鄉"
+    },
+    "10007200": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "二林鎮"
+    },
+    "10007190": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "北斗鎮"
+    },
+    "10007180": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "二水鄉"
+    },
+    "10007170": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "社頭鄉"
+    },
+    "10007160": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "永靖鄉"
+    },
+    "10007150": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "埔心鄉"
+    },
+    "10007140": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "埔鹽鄉"
+    },
+    "10007130": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "大村鄉"
+    },
+    "10007120": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "田中鎮"
+    },
+    "10007110": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "溪湖鎮"
+    },
+    "10007100": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "員林市"
+    },
+    "10007090": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "芬園鄉"
+    },
+    "10007080": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "花壇鄉"
+    },
+    "10007070": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "秀水鄉"
+    },
+    "10007060": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "福興鄉"
+    },
+    "10007050": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "伸港鄉"
+    },
+    "10007040": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "線西鄉"
+    },
+    "10007030": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "和美鎮"
+    },
+    "10007020": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "鹿港鎮"
+    },
+    "10007010": {
+         "AreaCounty": "彰化縣",
+         "AreaTown": "彰化市"
+    },
+    "10005180": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "泰安鄉"
+    },
+    "10005170": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "獅潭鄉"
+    },
+    "10005160": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "三灣鄉"
+    },
+    "10005150": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "造橋鄉"
+    },
+    "10005140": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "西湖鄉"
+    },
+    "10005130": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "三義鄉"
+    },
+    "10005120": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "頭屋鄉"
+    },
+    "10005110": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "南庄鄉"
+    },
+    "10005100": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "銅鑼鄉"
+    },
+    "10005090": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "公館鄉"
+    },
+    "10005080": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "大湖鄉"
+    },
+    "10005070": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "卓蘭鎮"
+    },
+    "10005060": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "後龍鎮"
+    },
+    "10005050": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "頭份市"
+    },
+    "10005040": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "竹南鎮"
+    },
+    "10005030": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "通霄鎮"
+    },
+    "10005020": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "苑裡鎮"
+    },
+    "10005010": {
+         "AreaCounty": "苗栗縣",
+         "AreaTown": "苗栗市"
+    },
+    "10004130": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "五峰鄉"
+    },
+    "10004120": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "尖石鄉"
+    },
+    "10004110": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "峨眉鄉"
+    },
+    "10004100": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "寶山鄉"
+    },
+    "10004090": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "北埔鄉"
+    },
+    "10004080": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "橫山鄉"
+    },
+    "10004070": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "芎林鄉"
+    },
+    "10004060": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "新豐鄉"
+    },
+    "10004050": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "湖口鄉"
+    },
+    "10004040": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "關西鎮"
+    },
+    "10004030": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "新埔鎮"
+    },
+    "10004020": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "竹東鎮"
+    },
+    "10004010": {
+         "AreaCounty": "新竹縣",
+         "AreaTown": "竹北市"
+    },
+    "10002120": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "南澳鄉"
+    },
+    "10002110": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "大同鄉"
+    },
+    "10002100": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "三星鄉"
+    },
+    "10002090": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "五結鄉"
+    },
+    "10002080": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "冬山鄉"
+    },
+    "10002070": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "員山鄉"
+    },
+    "10002060": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "壯圍鄉"
+    },
+    "10002050": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "礁溪鄉"
+    },
+    "10002040": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "頭城鎮"
+    },
+    "10002030": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "蘇澳鎮"
+    },
+    "10002020": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "羅東鎮"
+    },
+    "10002010": {
+         "AreaCounty": "宜蘭縣",
+         "AreaTown": "宜蘭市"
+    },
+    "9020060": {
+         "AreaCounty": "金門縣",
+         "AreaTown": "烏坵鄉"
+    },
+    "9020050": {
+         "AreaCounty": "金門縣",
+         "AreaTown": "烈嶼鄉"
+    },
+    "9020040": {
+         "AreaCounty": "金門縣",
+         "AreaTown": "金寧鄉"
+    },
+    "9020030": {
+         "AreaCounty": "金門縣",
+         "AreaTown": "金湖鎮"
+    },
+    "9020020": {
+         "AreaCounty": "金門縣",
+         "AreaTown": "金沙鎮"
+    },
+    "9020010": {
+         "AreaCounty": "金門縣",
+         "AreaTown": "金城鎮"
+    },
+    "9007040": {
+         "AreaCounty": "連江縣",
+         "AreaTown": "東引鄉"
+    },
+    "9007030": {
+         "AreaCounty": "連江縣",
+         "AreaTown": "莒光鄉"
+    },
+    "9007020": {
+         "AreaCounty": "連江縣",
+         "AreaTown": "北竿鄉"
+    },
+    "9007010": {
+         "AreaCounty": "連江縣",
+         "AreaTown": "南竿鄉"
+    }
+}

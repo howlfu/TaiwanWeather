@@ -1,11 +1,9 @@
 var express = require('express');
-var WmCWBParser = require('../cwb/wm.cwb.parser');
 class WmHostWeatherApi {
 
     constructor(setting) {
         this.port = setting.Port;
         this.isSecure = setting.IsSecure;
-        this.interval = setting.Interval;
         this.app = express();
     }
 
@@ -15,26 +13,31 @@ class WmHostWeatherApi {
 
     Start() {
         this.regResFuncMap();
+        console.log('start hosting port: ' + this.port);
         this.app.listen(this.port);
     }
     
     regResFuncMap(){
-        this._registerGetHandlerFunc('/', this.onHandleIndexPage);
+        this._registerGetHandlerFunc('/', this.onHandleIndexPage.bind(this));
         this._registerGetHandlerFunc('/weather', this.onHandleWeatherData);
         this._registerGetHandlerFunc('/alarm', this.onHandleAlarmData);
     }
 
-    onHandleIndexPage() {
-        var all = this.parserMgr.All();
-        res.send(all);
+    onHandleIndexPage(req, res) {
+        var county = req.query.county;
+        var town = req.query.town;
+        this.parserMgr.All(county, town)
+        .then( data => {
+            res.send(data);
+        });
     }
 
-    onHandleWeatherData() {
+    onHandleWeatherData(req, res) {
         var weather = this.parserMgr.Weather();
         res.send(weather);
     }
 
-    onHandleAlarmData() {
+    onHandleAlarmData(req, res) {
         var alam = this.parserMgr.Alarm();
         res.send(alam);
     }
@@ -45,9 +48,3 @@ class WmHostWeatherApi {
 
 }
 module.exports = WmHostWeatherApi
-var testConfig = {
-    "Port": 7123,
-    "IsSecure": true
-}
-var testApi = new WmHostWeatherApi(testConfig);
-testApi.Start();
