@@ -22,7 +22,7 @@ class WmCWBParser {
         this.CWBPath = path;
     }
 
-    SetalertPath(path) {
+    SetAlertPath(path) {
         this.alertPath = path;
     }
 

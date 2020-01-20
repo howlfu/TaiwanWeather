@@ -9,5 +9,6 @@
     "Api": {
         "Port": 7123,
         "IsSecure": true
-    }
+    },
+    "Interval": 5
 }
