@@ -5,12 +5,14 @@ const WmAlertPathType = require('./data//wm.alert.path.type');
 const WmAlertResultType = require('./data/wm.alert.result.type');
 const fetch = require('node-fetch');
 const https = require('https');
+const parse5 = require('parse5');
 class WmCWBParser {
     constructor(config) {
         if(config != undefined && config != null) {
             this.debug = config.IsDebug;
             this.CWBPath = config.CWBPath;
             this.alertPath = config.AlertPath;
+            this.suspendPath = config.SuspendPath;
             this.auth = config.Auth;
         }
         this.init();
@@ -45,7 +47,15 @@ class WmCWBParser {
         var _this = this;
         async function getAllData() {
             var alertSet = await _this._getAlertSet(county, town);
-            var suspend = await _this._getSuspend(county);
+            var desc = await _this._getSuspend(county);
+            if(desc != null && _this.debug == true) {
+                var suspendDetail = {
+                    'type': WmAlertResultType.SUSPEND,
+                    'title': '停班停課',
+                    'desc': desc
+                };
+                alertSet.push(suspendDetail)
+            }
             cb(alertSet);
         }
         getAllData();
@@ -337,7 +347,82 @@ class WmCWBParser {
         return result;
     }
 
-    _getSuspend(count) {
+    _getSuspend(county) {
+        var _this = this;
+        const agent = new https.Agent({rejectUnauthorized: false});
+        return new Promise((resolve, reject) => {
+            fetch(this.suspendPath, {
+                method: 'get',
+                agent: agent
+                })
+            .then(res => res.text())
+            .then(retHtml => {
+                try {
+                    var parseResult = _this._checkIfSuspend(county, retHtml);
+                    if(parseResult.isSus == true) {
+                        resolve(parseResult.data);
+                    } else {
+                        resolve(null);
+                    }
+                } catch (error) {
+                    console.log('Parse html fail');
+                    reject(error);
+                }
+               
+            })
+            .catch(err => {
+                reject(err);
+            });
+        });
+    }
+
+    _checkIfSuspend(county, cont) {
+        var result = {
+            'isSus': false,
+            'data': ''
+        }
+        var parseHtml = parse5.parse(cont);
+        var firstFrag = parseHtml.childNodes[0];
+        if(firstFrag.nodeName == "#comment") {
+            firstFrag = parseHtml.childNodes[1];
+        }
+        var bodyFrag = firstFrag.childNodes[1];
+        var contentFrag = bodyFrag.childNodes[19];
+        if(contentFrag.nodeName != 'div') {
+            contentFrag = bodyFrag.childNodes[18];
+        }
+        var tableFrag = contentFrag.childNodes[15];
+        if(tableFrag.nodeName != 'table') {
+            tableFrag = contentFrag.childNodes[13];
+        }
+        var tBodyFrag = tableFrag.childNodes[2];
+        // table start
+        for(var i = 1; i < (tBodyFrag.childNodes.length-5); i++) {
+            var trBodyFrag = tBodyFrag.childNodes[i];
+            var tdFrag = trBodyFrag.childNodes[0];
+            var tdContData = tdFrag.childNodes[0].childNodes[0];
+            if(tdContData.nodeName == 'h2') {
+                //no data
+                var realData = tdContData.childNodes[0].value; // font, h2, text
+                if(realData == '無停班停課訊息。') {
+                    result.isSus = true;
+                    result.data = realData;
+                    return result;
+                }
+            } else {
+                var countyData = tdContData.value;
+                var td2Frag = trBodyFrag.childNodes[1];
+                var tdCont2Data = td2Frag.childNodes[0].childNodes[0];
+                var resultData = tdCont2Data.value;
+                if(countyData == county) {
+                    console.log(countyData + ' ' + resultData);
+                    result.isSus = true;
+                    result.data = resultData;
+                    return result;
+                }
+            }
+        }
+        return result;
 
     }
 
@@ -348,12 +433,18 @@ module.exports = WmCWBParser
 //     "IsDebug": true,
 //     "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
 //     "AlertPath": "https://alerts.ncdr.nat.gov.tw/JSONAtomFeed.ashx",
+//     "SuspendPath": "https://www.dgpa.gov.tw/typh/daily/nds.html",
 //     "Auth": "CWB-7BB8EDCA-6853-4E86-89E2-6E846B7986DB",
 // }
 // var testParser = new WmCWBParser(config);
+// var fs = require('fs');
+// // var cont = fs.readFileSync('/Users/howlfu/Downloads/test_2.html', 'utf8');
+// //testParser._getSuspend('宜蘭縣');
+// // testParser._checkIfSuspend('宜蘭縣', cont);
 // testParser.GetAlarmSet('宜蘭縣', '冬山鄉', function(data) {
 //         console.log(data);
 //     });
+
 //var typhoonString = "1SEA18MITAG米塔2019-09-29T00:00:00+00:0018.30,126.802835980150輕度颱風SEVERE TROPICAL STORM2019-09-30T00:00:00+00:0021.40,123.503848960180輕度颱風 米塔（國際命名 MITAG）29日8時的中心位置在北緯 18.3 度，東經 126.8 度，即在臺\n北的東南方約 920 公里之海面上。中心氣壓 980 百帕，近中心最大風速每秒 28 公尺（約每小時 101 公里），相當於 10 級風，瞬\n間最大陣風每秒 35 公尺（約每小時 126 公里），相當於 12 級風，七級風暴風半徑 150 公里，\n十級風暴風半徑 – 公里。以每小時24公里速度，向西北進行，預測30日8時的中心位置在北緯 21.4 度，東經 123.5 度，即\n在臺北的南南東方約 450 公里之海面上。根據最新氣象資料顯示，第18號颱風過去3小時強度略為增強，目前中心在臺北東南方海面，向西\n北移動，其暴風圈朝巴士海峽接近，對巴士海峽及臺灣東南部海面(含蘭嶼、綠島)將構成威脅。預\n計此颱風未來強度有再增強且暴風圈有擴大的趨勢。臺灣東南部海面(含蘭嶼、綠島)、巴士海峽航行及作業船隻應嚴加戒備。颱風外圍環流影響，易有短時強降雨，今(29)日宜蘭縣、大臺北山區及基隆北海岸有局部大雨或豪\n雨，桃園、花蓮地區及大臺北平地有局部大雨發生的機率，請注意雷擊及強陣風，山區請慎防坍方\n、落石及溪水暴漲，低窪地區請慎防淹水。＊颱風外圍環流影響，臺灣附近各沿地區易有較強陣風，鄰近海域風浪明顯偏大，前往海邊活動請\n注意安全。\n＊本警報單之颱風半徑為平均半徑，第18號颱風之7級風暴風半徑東北象限約180公里，西南象限約\n 120公里，其他象限約150公里，平均半徑約為120公里。";
 //var result = testParser._parseSum(typhoonString, 'TYPHOON');
 // var mudString = "依據中央氣象局風雨資料研判：計77條土石流潛勢溪流達黃色警戒(相關詳細土石流警戒資訊請上土石流防災資訊網( http://246.swcb.gov.tw/ )查詢)";

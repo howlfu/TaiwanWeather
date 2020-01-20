@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/i66/rtw-weather-meter#readme",
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "parse5": "^5.1.1"
   }
 }
