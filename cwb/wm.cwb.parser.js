@@ -117,8 +117,10 @@ class WmCWBParser {
                 var allSum = 0;
                 pm25Array.forEach(function(pm){
                     try {
-                        var intVal = parseInt(pm25[pm]);
-                        allSum = allSum + intVal;
+                        if(pm25[pm] != '') {
+                            var intVal = parseInt(pm25[pm]);
+                            allSum = allSum + intVal;
+                        }
                     } catch (error) {
                     }
                 });
