@@ -1,4 +1,6 @@
 var express = require('express');
+var https = require('https');
+const fs = require('fs');
 class WmHostWeatherApi {
 
     constructor(setting) {
@@ -13,8 +15,18 @@ class WmHostWeatherApi {
 
     Start() {
         this.regResFuncMap();
-        console.log('start hosting port: ' + this.port);
-        this.app.listen(this.port);
+        var path = require('path');
+        var appDir = path.dirname(require.main.filename);
+        var certFile = path.join(appDir, '/data/ssl/server.pem');
+        var certKey = path.join(appDir, '/data/ssl/key.pem');
+        var server = https.createServer({
+            cert: fs.readFileSync(certFile),
+            key: fs.readFileSync(certKey)
+        }, this.app);
+
+        server.listen(this.port, function() {
+            console.log('runing Web Server in ' + this.port + ' port...');
+        }.bind(this));
     }
     
     regResFuncMap(){
