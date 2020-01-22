@@ -11,7 +11,7 @@
     },
     "Api": {
         "Port": 7123,
-        "IsSecure": true
+        "IsSecure": false
     }
     
 }

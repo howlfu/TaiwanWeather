@@ -86,10 +86,15 @@ class WmCWBParser {
     }
 
     _updatePm25() {
+        var _this = this;
         this._getPm25().then((data) => {
             this.isReady = true;
             this.cachePm25 = data;
             console.log('get pm25');
+        }).catch( err => {
+            setTimeout(() => {
+                _this._updatePm25();
+            }, 5000);
         });
     }
 
