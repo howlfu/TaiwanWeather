@@ -15,18 +15,24 @@ class WmHostWeatherApi {
 
     Start() {
         this.regResFuncMap();
-        var path = require('path');
-        var appDir = path.dirname(require.main.filename);
-        var certFile = path.join(appDir, '/data/ssl/server.pem');
-        var certKey = path.join(appDir, '/data/ssl/key.pem');
-        var server = https.createServer({
-            cert: fs.readFileSync(certFile),
-            key: fs.readFileSync(certKey)
-        }, this.app);
+        if(this.isSecure == true) {
+            var path = require('path');
+            var appDir = path.dirname(require.main.filename);
+            var certFile = path.join(appDir, '/data/ssl/server.pem');
+            var certKey = path.join(appDir, '/data/ssl/key.pem');
+            var server = https.createServer({
+                cert: fs.readFileSync(certFile),
+                key: fs.readFileSync(certKey)
+            }, this.app);
 
-        server.listen(this.port, function() {
-            console.log('runing Web Server in ' + this.port + ' port...');
-        }.bind(this));
+            server.listen(this.port, function() {
+                console.log('runing Web Server in ' + this.port + ' port...');
+            }.bind(this));
+        } else {
+            console.log('start hosting port: ' + this.port);
+            this.app.listen(this.port);
+        }
+        
     }
     
     regResFuncMap(){
