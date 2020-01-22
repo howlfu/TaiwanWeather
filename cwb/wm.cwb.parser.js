@@ -145,6 +145,7 @@ class WmCWBParser {
 
     _getWeather(area, type) {
         var _this = this;
+        const agent = new https.Agent({rejectUnauthorized: false});
         return new Promise((resolve, reject) => {
             var fetchPath = this.CWBPath + type;
             fetchPath =  fetchPath + '?' + 'Authorization=' + this.auth;
@@ -154,6 +155,7 @@ class WmCWBParser {
             }
             fetch(fetchByLocation, {
                 method: 'get',
+                agent: agent
                 })
             .then(res => res.json())
             .then(retData => {
@@ -166,6 +168,7 @@ class WmCWBParser {
                     } else {
                         fetch(fetchPath, {
                             method: 'get',
+                            agent: agent
                             })
                         .then(res => res.json())
                         .then(retData => {
@@ -284,10 +287,12 @@ class WmCWBParser {
 
     _getAlertSingle(type) {
         //https://alerts.ncdr.nat.gov.tw/JSONAtomFeed.ashx?AlertType=
+        const agent = new https.Agent({rejectUnauthorized: false});
         var path = this.alertPath + '?AlertType=' + type;
         return new Promise((resolve, reject) => {
             fetch(path, {
                 method: 'get',
+                agent: agent
                 })
             .then(res => res.json())
             .then(retData => {
