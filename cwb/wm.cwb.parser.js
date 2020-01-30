@@ -453,7 +453,7 @@ class WmCWBParser {
                 //no data
                 var realData = tdContData.childNodes[0].value; // font, h2, text
                 if(realData == '無停班停課訊息。') {
-                    result.isSus = true;
+                    result.isSus = false;
                     result.data = realData;
                     return result;
                 }
