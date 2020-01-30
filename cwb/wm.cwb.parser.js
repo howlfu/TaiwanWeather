@@ -253,6 +253,7 @@ class WmCWBParser {
                 }
             }
         }
+        return allData[0].elementValue;
     }
 
     _getAlertSet(county, town) {
