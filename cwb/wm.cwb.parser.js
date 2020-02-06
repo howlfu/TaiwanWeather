@@ -63,11 +63,16 @@ class WmCWBParser {
         async function getAllData() {
             try {
                 var alertSet = await _this._getAlertSet(county, town);
-                 var desc = await _this._getSuspend(county);
             } catch (error) {
-                console.log('Get alert data fail, '+ county + ' ' + town);
+                console.log('Get alert data fail, '+ error);
             }
-            if(desc != null && _this.debug == true) {
+            try {
+                var desc = await _this._getSuspend(county);
+            } catch (error) {
+                console.log('Get suspend data fail, '+ error);
+            }
+            
+            if(desc != null && desc != undefined && _this.debug == true) {
                 var suspendDetail = {
                     'type': WmAlertResultType.SUSPEND,
                     'title': '停班停課',
@@ -118,18 +123,21 @@ class WmCWBParser {
         else {
             var result = 0;
             var pm25Array = Object.keys(pm25);
+            var noResultCount = 0;
             if(pm25Array.length != 0){
                 var allSum = 0;
                 pm25Array.forEach(function(pm){
                     try {
-                        if(pm25[pm] != '') {
+                        if(parseInt(pm25[pm]) > 0) {
                             var intVal = parseInt(pm25[pm]);
                             allSum = allSum + intVal;
+                        } else {
+                            noResultCount++;
                         }
                     } catch (error) {
                     }
                 });
-                result = Math.round(allSum / pm25Array.length);
+                result = Math.round(allSum / (pm25Array.length - noResultCount));
             }
             return result;
         }
@@ -284,8 +292,11 @@ class WmCWBParser {
                     }
                     count ++;
                 }).catch(err => {
-                    console.log('single alarm get fail ' + type)
-                    reject(err);
+                    console.log('single alarm get fail ' + type);
+                    if(count == len) {
+                        reject(err);
+                    };
+                    count ++;
                 });
             });
         });
@@ -296,15 +307,20 @@ class WmCWBParser {
         const agent = new https.Agent({rejectUnauthorized: false});
         var path = this.alertPath + '?AlertType=' + type;
         return new Promise((resolve, reject) => {
+            var alarmTimeOut = setTimeout(() => {
+                reject(null)
+            }, 3000);
             fetch(path, {
                 method: 'get',
                 agent: agent
                 })
             .then(res => res.json())
             .then(retData => {
+                clearTimeout(alarmTimeOut);
                 var lastData = retData.entry[retData.entry.length - 1];
                 resolve(lastData);
             }).catch(err => {
+                clearTimeout(alarmTimeOut);
                 reject(err);
             });
         });
