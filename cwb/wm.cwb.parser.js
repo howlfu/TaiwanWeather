@@ -410,9 +410,10 @@ class WmCWBParser {
                 var bloodDays = sumData.substr(dayIndex , tmpString.indexOf(')'));
                 var typeIndex = sumData.indexOf('偏低血型：') + 5;;
                 var tmpString2 = sumData.substr(typeIndex, sumData.length - typeIndex);
-                var bloodType = sumData.substr(typeIndex , tmpString2.indexOf("↵"));
+                var changeLine = tmpString2.indexOf("\n");
+                var bloodType = sumData.substr(typeIndex , changeLine).split('型').join('');
                 result.title = '缺血';
-                result.desc = bloodType + '存量偏低\n約' + bloodDays;
+                result.desc = bloodType + '存量偏低\n' +'約' + bloodDays;
                 break;
             default:
                 break;
@@ -535,7 +536,7 @@ module.exports = WmCWBParser
 // var result =  testParser._parseSum(fog, 'DsF', '嘉義縣', '測試區');
 // var thunder = "108 年 9 月 27 日 23 時 11 分 氣象局發布大雷雨即時訊息，持續時間至 1 時 15 分；請慎防劇烈降雨、雷擊，坍方、落石、土石流，低窪地區慎防淹水";
 // var result =  testParser._parseSum(thunder, 'th', '嘉義縣', '測試區');
-// var blood = "↵		台北市捐血中心血液庫存量偏低(4 - 7日)↵		新竹捐血中心存量偏低血型：A型、O型↵	";
+// var blood = "↵		台北捐血中心血液庫存量偏低(4 - 7日)↵		台北捐血中心存量偏低血型：A型、B型、O型、AB型↵	";
 // var result = testParser._parseSum(blood, 'bloodSupply', '台北市', '中正區'); 
 // console.log(result);
 // // testParser.GetWeather('臺北市', '中正區', function(data) {
