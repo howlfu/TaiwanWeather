@@ -291,7 +291,7 @@ class WmCWBParser {
                     }
                     resolve(alertDetail);
                 }).catch(err => {
-                    console.log('alarm get fail ' + err.message);
+                    console.log('alarm get fail');
                     reject(err);
                 });
         });
@@ -312,7 +312,7 @@ class WmCWBParser {
             .then(res => res.json())
             .then(retData => {
                 clearTimeout(alarmTimeOut);
-                resolve(retData.entry[retData.result]);
+                resolve(retData.result);
             }).catch(err => {
                 clearTimeout(alarmTimeOut);
                 reject(err);
@@ -322,6 +322,7 @@ class WmCWBParser {
 
     _parseSum(sumData, type, county, town) {
         var key = Object.keys(WmAlertPathType).find(key => WmAlertPathType[key] === type);
+        if(key == null || key == undefined) return null;
         var result = {
             'type' :  WmAlertResultType[key]
         };
@@ -411,7 +412,7 @@ class WmCWBParser {
                 var tmpString2 = sumData.substr(typeIndex, sumData.length - typeIndex);
                 var bloodType = sumData.substr(typeIndex , tmpString2.indexOf("↵"));
                 result.title = '缺血';
-                result.desc = bloodType + '存量偏低約' + bloodDays;
+                result.desc = bloodType + '存量偏低\n約' + bloodDays;
                 break;
             default:
                 break;
@@ -501,15 +502,15 @@ class WmCWBParser {
 }
 
 module.exports = WmCWBParser
-var config = {
-    "IsDebug": false,
-    "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
-    "AlertPath": "https://alerts.ncdr.nat.gov.tw/api/datastore",
-    "SuspendPath": "https://www.dgpa.gov.tw/typh/daily/nds.html",
-    "CWBAuth": "CWB-D64D68AD-6F47-4C69-99FE-239B5062F098",
-    "AlertAuth": "E1wioXHgMo+2GbznZgb0pUVz/Hxh11oPCja3mfjwnE/9Y467Y2qQbzAh4yawQ4pG"
-}
-var testParser = new WmCWBParser(config);
+// var config = {
+//     "IsDebug": false,
+//     "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
+//     "AlertPath": "https://alerts.ncdr.nat.gov.tw/api/datastore",
+//     "SuspendPath": "https://www.dgpa.gov.tw/typh/daily/nds.html",
+//     "CWBAuth": "CWB-D64D68AD-6F47-4C69-99FE-239B5062F098",
+//     "AlertAuth": "E1wioXHgMo+2GbznZgb0pUVz/Hxh11oPCja3mfjwnE/9Y467Y2qQbzAh4yawQ4pG"
+// }
+// var testParser = new WmCWBParser(config);
 // var fs = require('fs');
 // // var cont = fs.readFileSync('/Users/howlfu/Downloads/test_2.html', 'utf8');
 // //testParser._getSuspend('宜蘭縣');
