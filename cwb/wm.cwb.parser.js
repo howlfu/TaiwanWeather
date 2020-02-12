@@ -16,10 +16,10 @@ class WmCWBParser {
             this.auth = config.Auth;
             this._updatePm25();
             this.isReady = false;
-            var oneDay = 1000*60*60*24;
+            var everyHour = 1000*60*60;
             setInterval( function() {
                 this._updatePm25();
-            }.bind(this), oneDay);
+            }.bind(this), everyHour);
         }
         this.init();
     }
@@ -97,6 +97,7 @@ class WmCWBParser {
             this.cachePm25 = data;
             console.log('get pm25');
         }).catch( err => {
+            console.log('get pm25 fail');
             setTimeout(() => {
                 _this._updatePm25();
             }, 5000);
