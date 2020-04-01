@@ -8,6 +8,7 @@ class GeoGetter {
         this.ready = false;
         var appDir = path.dirname(require.main.filename);
         var mapPath = path.join(appDir, 'data', config.FileName);
+        //var mapPath = '../data/mapdata.zip'
         fs.exists(mapPath, function(isExists){
             if(isExists) {
                 fs.readFile(mapPath, function(err, mapData) {
@@ -31,24 +32,40 @@ class GeoGetter {
         if(this.ready) {
             var allGeo = this.geojson.features;
             var testPoint = [longitude, latitude];
+            var bboxIndex = [];
+            var location = {};
             for (let index = 0; index < allGeo.length; index++) {
                 const geo = allGeo[index];
-                var isInPoly = this._pointInBBox(testPoint, geo.geometry.bbox);
+                let isInPoly = this._pointInBBox(testPoint, geo.geometry.bbox);
                 if(isInPoly) {
-                    var county = geo.properties.COUNTYNAME;
+                    let county = geo.properties.COUNTYNAME;
+                    let town = geo.properties.TOWNNAME;
+                    let code = geo.properties.TOWNCODE;
+                    location.code= code;
+                    location.county = county;
+                    location.town = town;
+                    bboxIndex.push(index);
+                }
+            }
+
+            if(bboxIndex.length > 1) {
+                for (let index = 0; index < bboxIndex.length; index++) {
+                    const geo = this.geojson.features[bboxIndex[index]];
+                    
                     var isInBoundry = this._pointInPolygon(testPoint, geo.geometry.coordinates[0]);
                     if(isInBoundry) {
-                        var town = geo.properties.TOWNNAME;
-                        var code = geo.properties.TOWNCODE;
+                        let county = geo.properties.COUNTYNAME;
+                        let town = geo.properties.TOWNNAME;
+                        let code = geo.properties.TOWNCODE;
                         //console.log('區碼: ' + code + ' 區域: ' + county + town);
-                        var location = {};
                         location.code= code;
                         location.county = county;
                         location.town = town;
-                        cb(location)
+                        break;
                     }
                 }
-            }
+            } 
+            cb(location)
         } else {
             console.log('wait geoJson ready');
             cb({});
@@ -102,7 +119,7 @@ module.exports = GeoGetter;
 
 // const tmpGetter = new GeoGetter({'FileName': 'mapdata.zip'});
 // var testArry = [["25.024", "121.522"], ["25.0145", "121.461"], ["25.171", "121.447"],
-//  ["24.574", "120.877"], ["24.0680263", "121.6150412"], ["23.0284174", "120.264059"]]
+//  ["24.574", "120.877"], ["24.0680263", "121.6150412"], ["23.0284174", "120.264059"], ["24.3182394","120.6894065"]]
 // setTimeout(() => {
 //     testArry.forEach(testPoint => {
 //         tmpGetter.getByPos(testPoint[0], testPoint[1], function(result) {
@@ -110,4 +127,4 @@ module.exports = GeoGetter;
 //                 console.log('區碼: ' + result.code + ' 區域: ' + result.county + result.town);
 //         });
 //     });
-// }, 1);
+// }, 15);
