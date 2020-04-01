@@ -13,6 +13,9 @@
     "Api": {
         "Port": 7123,
         "IsSecure": true
+    },
+    "GeoGetter": {
+        "FileName": "mapdata.zip"
     }
     
 }

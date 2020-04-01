@@ -1,6 +1,7 @@
 var express = require('express');
 var https = require('https');
 const fs = require('fs');
+const checker = require('../helper/hex.checker')
 class WmHostWeatherApi {
 
     constructor(setting) {
@@ -11,6 +12,10 @@ class WmHostWeatherApi {
 
     SetParserMgr(mgr) {
         this.parserMgr = mgr;
+    }
+
+    SetGeoGetter(getter) {
+        this.geoGetter = getter;
     }
 
     Start() {
@@ -39,6 +44,7 @@ class WmHostWeatherApi {
         this._registerGetHandlerFunc('/', this.onHandleIndexPage.bind(this));
         this._registerGetHandlerFunc('/weather', this.onHandleWeatherData);
         this._registerGetHandlerFunc('/alarm', this.onHandleAlarmData);
+        this._registerGetHandlerFunc('/geo', this.onHandleLocateData.bind(this));
     }
 
     onHandleIndexPage(req, res) {
@@ -58,6 +64,16 @@ class WmHostWeatherApi {
     onHandleAlarmData(req, res) {
         var alam = this.parserMgr.Alarm();
         res.send(alam);
+    }
+
+    onHandleLocateData(req, res) {
+        var latitude  = req.query.lati;
+        var longitude = req.query.long;
+        if(!checker.isNonEmptyStr(longitude) || !checker.isNonEmptyStr(latitude)) return res.sendStatus(404);
+        this.geoGetter.getByPos(latitude, longitude, function(result) {
+            //console.log('區碼: ' + result.code + ' 區域: ' + result.county + result.town);
+            res.send(result);
+        });
     }
 
     _registerGetHandlerFunc(res, cb) {

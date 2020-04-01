@@ -1,4 +1,5 @@
 
+'use strict'
 var WmCWBParser = require('./wm.cwb.parser');
 var allArea = require('../data/wm.area.code.json');
 class WmCWBMgr{
