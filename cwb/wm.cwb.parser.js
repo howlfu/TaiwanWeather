@@ -3,6 +3,7 @@ const WmResType = require('./data/wm.res.type');
 const WmCwbElementType = require('./data/wm.cwb.element.type');
 const WmAlertPathType = require('./data//wm.alert.path.type');
 const WmAlertResultType = require('./data/wm.alert.result.type');
+const checker = require('../helper/hex.checker');
 const fetch = require('node-fetch');
 const https = require('https');
 const parse5 = require('parse5');
@@ -21,6 +22,7 @@ class WmCWBParser {
             setInterval( function() {
                 this._updatePm25();
             }.bind(this), everyHour);
+            this.tmpAlarm = {}
         }
         this.init();
     }
@@ -269,27 +271,29 @@ class WmCWBParser {
     _getAlertSet(county, town) {
         var _this = this;
         return new Promise((resolve, reject) => {
-            var alertDetail = [], tmpAlertDetail = [];
+            var alertDetail = {}, tmpAlertDetail = {};
             var currentDate = new Date();
             _this._getAlertNow()
                 .then( alertData => {
+                    this.tmpAlarm = {}
                     alertData.forEach(detail => {
                         var alertExpires = new Date(detail.expires);
                         var parsedData = _this._parseSum(detail.description, detail.capCode, county, town);
                         if(parsedData != null) {
+                            var alarmType = parsedData.title
                             if(alertExpires.getFullYear() >= currentDate.getFullYear() &&
                             alertExpires.getMonth() >= currentDate.getMonth() &&
                             alertExpires.getDate() >= currentDate.getDate()) {
-                                    alertDetail.push(parsedData);
+                                alertDetail[alarmType] = parsedData
                             }
-                            tmpAlertDetail.push(parsedData);
+                            tmpAlertDetail[alarmType] = parsedData
                         }
                     })
                     
-                    if(alertDetail.length == 0 && this.debug == true) {
+                    if(checker.isEmptyObj(alertDetail) && this.debug == true) {
                         alertDetail = tmpAlertDetail;
                     }
-                    resolve(alertDetail);
+                    resolve(Object.values(alertDetail));
                 }).catch(err => {
                     console.log('alarm get fail');
                     reject(err);
@@ -397,9 +401,11 @@ class WmCWBParser {
             case WmAlertPathType.THUNDER:
                 var thunderIndex = sumData.indexOf('持續時間') + 4;
                 var tmpString = sumData.substr(thunderIndex, sumData.length - thunderIndex);
-                var thunderString = sumData.substr(thunderIndex , tmpString.indexOf('；'));
+                var thunderString = sumData.substr(thunderIndex , tmpString.indexOf('；')).replace(/\s/g, '');
+                var tmpTime = thunderString.match(/\d+/g); 
+                var stringDate = '持續至' + tmpTime.join(':');
                 result.title = '雷雨';
-                result.desc = thunderString.replace(/\s/g, '') ;
+                result.desc = stringDate;
                 break
             case WmAlertPathType.BLOOD:
                 var countyS = county.replace('縣','').replace('市','').replace('台','臺');
@@ -512,11 +518,11 @@ module.exports = WmCWBParser
 //     "AlertAuth": "E1wioXHgMo+2GbznZgb0pUVz/Hxh11oPCja3mfjwnE/9Y467Y2qQbzAh4yawQ4pG"
 // }
 // var testParser = new WmCWBParser(config);
-// var fs = require('fs');
-// // var cont = fs.readFileSync('/Users/howlfu/Downloads/test_2.html', 'utf8');
-// //testParser._getSuspend('宜蘭縣');
-// // testParser._checkIfSuspend('宜蘭縣', cont);
-// testParser.GetAlertSet('宜蘭縣', '冬山鄉', function(data) {
+//var fs = require('fs');
+// var cont = fs.readFileSync('/Users/howlfu/Downloads/test_2.html', 'utf8');
+//testParser._getSuspend('宜蘭縣');
+// testParser._checkIfSuspend('宜蘭縣', cont);
+// testParser.GetAlertSet('台北市', '南港區', function(data) {
 //         console.log(data);
 //     });
 
