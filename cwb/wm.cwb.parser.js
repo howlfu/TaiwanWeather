@@ -75,7 +75,8 @@ class WmCWBParser {
                 console.log('Get suspend data fail, '+ error);
             }
             
-            if(desc != null && desc != undefined && _this.debug == true) {
+            //if(desc != null && desc != undefined && _this.debug == true) {
+            if(desc != null && desc != undefined) {
                 var suspendDetail = {
                     'type': WmAlertResultType.SUSPEND,
                     'title': '停班停課',
@@ -466,8 +467,10 @@ class WmCWBParser {
         if(firstFrag.nodeName == "#comment") {
             firstFrag = parseHtml.childNodes[1];
         }
-        var bodyFrag = firstFrag.childNodes[1];
-        var contentFrag = bodyFrag.childNodes[19];
+        // var bodyFrag = firstFrag.childNodes[1];
+        // var contentFrag = bodyFrag.childNodes[19];
+        var bodyFrag = firstFrag.childNodes[2];
+        var contentFrag = bodyFrag.childNodes[7];
         if(contentFrag.nodeName != 'div') {
             contentFrag = bodyFrag.childNodes[18];
         }

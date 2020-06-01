@@ -42,8 +42,8 @@ class WmHostWeatherApi {
     
     regResFuncMap(){
         this._registerGetHandlerFunc('/', this.onHandleIndexPage.bind(this));
-        this._registerGetHandlerFunc('/weather', this.onHandleWeatherData);
-        this._registerGetHandlerFunc('/alarm', this.onHandleAlarmData);
+        this._registerGetHandlerFunc('/weather', this.onHandleWeatherData.bind(this));
+        this._registerGetHandlerFunc('/alarm', this.onHandleAlarmData.bind(this));
         this._registerGetHandlerFunc('/geo', this.onHandleLocateData.bind(this));
     }
 
