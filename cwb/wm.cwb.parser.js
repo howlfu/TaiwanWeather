@@ -408,20 +408,20 @@ class WmCWBParser {
                 result.title = '雷雨';
                 result.desc = stringDate;
                 break
-            case WmAlertPathType.BLOOD:
-                var countyS = county.replace('縣','').replace('市','').replace('台','臺');
-                var sumData = sumData.replace('台','臺')
-                if(sumData.indexOf(countyS) < 0) return null;
-                var dayIndex = sumData.indexOf('存量偏低(') + 5;
-                var tmpString = sumData.substr(dayIndex, sumData.length - dayIndex);
-                var bloodDays = sumData.substr(dayIndex , tmpString.indexOf(')'));
-                var typeIndex = sumData.indexOf('偏低血型：') + 5;;
-                var tmpString2 = sumData.substr(typeIndex, sumData.length - typeIndex);
-                var changeLine = tmpString2.indexOf("\n");
-                var bloodType = sumData.substr(typeIndex , changeLine).split('型').join('');
-                result.title = '缺血';
-                result.desc = bloodType + '存量偏低\n' +'約' + bloodDays;
-                break;
+            // case WmAlertPathType.BLOOD:
+            //     var countyS = county.replace('縣','').replace('市','').replace('台','臺');
+            //     var sumData = sumData.replace('台','臺')
+            //     if(sumData.indexOf(countyS) < 0) return null;
+            //     var dayIndex = sumData.indexOf('存量偏低(') + 5;
+            //     var tmpString = sumData.substr(dayIndex, sumData.length - dayIndex);
+            //     var bloodDays = sumData.substr(dayIndex , tmpString.indexOf(')'));
+            //     var typeIndex = sumData.indexOf('偏低血型：') + 5;;
+            //     var tmpString2 = sumData.substr(typeIndex, sumData.length - typeIndex);
+            //     var changeLine = tmpString2.indexOf("\n");
+            //     var bloodType = sumData.substr(typeIndex , changeLine).split('型').join('');
+            //     result.title = '缺血';
+            //     result.desc = bloodType + '存量偏低\n' +'約' + bloodDays;
+            //     break;
             default:
                 break;
         }
