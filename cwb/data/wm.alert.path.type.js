@@ -7,7 +7,7 @@ var WmAlertPathType = {
     'WIND': 'SW',       //強風
     'FOG': 'DsF',        //濃霧
     'THUNDER': 'th',    //雷雨
-    'BLOOD': 'bloodSupply' //捐血
+    //'BLOOD': 'bloodSupply' //捐血
 }
 
   
