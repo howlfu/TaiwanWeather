@@ -7,8 +7,8 @@ var WmAlertResultType = {
     'WIND': 'wind',
     'FOG': 'fog',
     'THUNDER': 'thunderstorm',
-    'SUSPEND': 'suspend',
-    'BLOOD': 'other'
+    'SUSPEND': 'suspend'
+    // 'BLOOD': 'other'
 }
 
   
