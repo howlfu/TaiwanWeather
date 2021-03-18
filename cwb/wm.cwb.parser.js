@@ -7,6 +7,8 @@ const checker = require('../helper/hex.checker');
 const fetch = require('node-fetch');
 const https = require('https');
 const parse5 = require('parse5');
+const path = require('path');
+
 class WmCWBParser {
     constructor(config) {
         if(config != undefined && config != null) {
@@ -16,6 +18,8 @@ class WmCWBParser {
             this.suspendPath = config.SuspendPath;
             this.cwbAuth = config.CWBAuth;
             this.alertAuth = config.AlertAuth;
+            this.globalPath = config.GlobalWeatherPath;
+            this.globalAppId = config.GlobalAppId;
             this._updatePm25();
             this.isReady = false;
             var everyHour = 1000*60*60;
@@ -37,6 +41,29 @@ class WmCWBParser {
 
     SetAlertPath(path) {
         this.alertPath = path;
+    }
+
+    GetWeatherGlobal(code, cb) {
+        var _this = this;
+        async function getAllData() {
+            try {
+                var retWeatherData = {};
+                var getWeatherData = await _this._getWeatherGlobal(code);
+                let coord = getWeatherData.coord;
+                var getPm25Data = await _this._getPm25Global(coord.lat, coord.lon);
+                let weatherLen = getWeatherData.weather.length
+                retWeatherData.desc = getWeatherData.weather[weatherLen-1].main;
+                retWeatherData.temperature = parseInt(getWeatherData.main.temp);
+                retWeatherData.humidity = getWeatherData.main.humidity;
+                retWeatherData.rain_chance = getWeatherData.clouds.all;
+                retWeatherData.pm25 = parseInt(getPm25Data);//remove float
+                cb(retWeatherData);
+            } catch (error) {
+                console.log('Get global weather data fail');
+            }
+        }
+        getAllData();
+        
     }
 
     GetWeather(county, town, cb) {
@@ -94,12 +121,41 @@ class WmCWBParser {
         this._checkIfApiReady();
     }
 
+    _getWeatherGlobal(code) {
+        var _this = this;
+        const agent = new https.Agent({rejectUnauthorized: false});
+        return new Promise((resolve, reject) => {
+            var globalWeather = this.globalPath + 'weather';
+            var fetchPath =  globalWeather + '?' + 'id=' + code + '&appid=' + this.globalAppId + '&units=metric';
+            fetch(fetchPath)
+            .then(res =>  res.json())
+            .then(retData => {
+                try {
+                    if(!checker.isEmptyObj(retData.length)) {
+                        resolve(retData);
+                    } else {
+                        fetch(fetchPath)
+                        .then(res =>  res.json())
+                        .then(retData => {
+                            resolve(retData);
+                        });
+                    }
+                    
+                } catch (error) {
+                    reject(error);
+                }
+            })
+            .catch(function(err){
+                reject(err);
+            });
+        });
+    }
+
     _updatePm25() {
         var _this = this;
         this._getPm25().then((data) => {
             this.isReady = true;
             this.cachePm25 = data;
-            console.log('get pm25');
         }).catch( err => {
             console.log('get pm25 fail');
             setTimeout(() => {
@@ -206,6 +262,23 @@ class WmCWBParser {
         });
     }
 
+    _getPm25Global(lat, lon) {
+        const agent = new https.Agent({rejectUnauthorized: false});
+        return new Promise((resolve, reject) => {
+            var globalPm25 = this.globalPath + 'air_pollution';
+            var fetchPath =  globalPm25 + '?' + 'lat=' + lat + '&lon=' + lon+ '&appid=' + this.globalAppId;
+            fetch(fetchPath)
+            .then(res => res.json())
+            .then(retData => {
+                let listLen = retData.list.length;
+                resolve(retData.list[listLen-1].components.pm2_5);
+            })
+            .catch(function(err){
+                reject(err);
+            });
+        });
+    }
+
     _getPm25() {
         const agent = new https.Agent({rejectUnauthorized: false});
         return new Promise((resolve, reject) => {
@@ -225,7 +298,10 @@ class WmCWBParser {
         });
     }
 
-    
+    // _getWeatherFactorsglobal(weatherData) {
+    //     var retData = {};
+    //     retData.desc = wxsElement[0].value;
+    // }
 
     _getWeatherFactors(allWeatherElement) {
         var retData = {};
@@ -517,6 +593,8 @@ module.exports = WmCWBParser
 //     "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
 //     "AlertPath": "https://alerts.ncdr.nat.gov.tw/api/datastore",
 //     "SuspendPath": "https://www.dgpa.gov.tw/typh/daily/nds.html",
+//     "GlobalWeatherPath": "https://api.openweathermap.org/data/2.5/",
+//     "GlobalAppId": "4af610c8e4672dbf593fc70cbcebbc33",
 //     "CWBAuth": "CWB-D64D68AD-6F47-4C69-99FE-239B5062F098",
 //     "AlertAuth": "E1wioXHgMo+2GbznZgb0pUVz/Hxh11oPCja3mfjwnE/9Y467Y2qQbzAh4yawQ4pG"
 // }
@@ -614,4 +692,7 @@ module.exports = WmCWBParser
 
 // var element = testParser._getCurrentDataIndex(tmpData);
 
-
+// var testParser = new WmCWBParser(config);
+// testParser.GetWeatherGlobal('7910036', function cb(retData) {
+//     console.log(retData);
+// })

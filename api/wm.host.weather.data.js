@@ -42,6 +42,7 @@ class WmHostWeatherApi {
     
     regResFuncMap(){
         this._registerGetHandlerFunc('/', this.onHandleIndexPage.bind(this));
+        this._registerGetHandlerFunc('/global', this.onHandleGlobleWeatherData.bind(this));
         this._registerGetHandlerFunc('/weather', this.onHandleWeatherData.bind(this));
         this._registerGetHandlerFunc('/alarm', this.onHandleAlarmData.bind(this));
         this._registerGetHandlerFunc('/geo', this.onHandleLocateData.bind(this));
@@ -50,7 +51,17 @@ class WmHostWeatherApi {
     onHandleIndexPage(req, res) {
         var county = req.query.county;
         var town = req.query.town;
+        if(!checker.isNonEmptyStr(county) || !checker.isNonEmptyStr(town)) return res.sendStatus(404);
         this.parserMgr.All(county, town)
+        .then( data => {
+            res.send(data);
+        });
+    }
+
+    onHandleGlobleWeatherData(req, res) {
+        var code = req.query.code;
+        if(!checker.isNonEmptyStr(code)) return res.sendStatus(404);
+        this.parserMgr.GlobalWeather(code)
         .then( data => {
             res.send(data);
         });

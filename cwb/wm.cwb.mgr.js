@@ -41,6 +41,16 @@ class WmCWBMgr{
         })
     }
 
+    GlobalWeather(code) {
+        var _this = this;
+        return new Promise(async (resolve, reject) => {
+            var result = {};
+            result.weather = await _this._getWeatherGlobal(code);
+            result.alarm_set = []
+            resolve(result);
+        })
+    }
+
     // All() {
     //     this.cache = {}
     //     Object.keys(allArea).forEach(async function(code) {
@@ -78,6 +88,14 @@ class WmCWBMgr{
     _getWeather(county, town) {
         return new Promise(resolve => {
             this.parser.GetWeather(county, town, (result) => {
+                resolve(result)
+            });
+        });
+    }
+
+    _getWeatherGlobal(code) {
+        return new Promise(resolve => {
+            this.parser.GetWeatherGlobal(code, (result) => {
                 resolve(result)
             });
         });

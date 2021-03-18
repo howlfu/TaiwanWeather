@@ -5,6 +5,8 @@
             "CWBPath": "https://opendata.cwb.gov.tw/api/v1/rest/datastore/",
             "AlertPath": "https://alerts.ncdr.nat.gov.tw/api/datastore",
             "SuspendPath": "https://www.dgpa.gov.tw/typh/daily/nds.html",
+            "GlobalWeatherPath": "https://api.openweathermap.org/data/2.5/",
+            "GlobalAppId": "4af610c8e4672dbf593fc70cbcebbc33",
             "CWBAuth": "CWB-D64D68AD-6F47-4C69-99FE-239B5062F098",
             "AlertAuth": "E1wioXHgMo+2GbznZgb0pUVz/Hxh11oPCja3mfjwnE/9Y467Y2qQbzAh4yawQ4pG"
         },
